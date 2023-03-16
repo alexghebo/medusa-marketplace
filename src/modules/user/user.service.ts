@@ -48,8 +48,7 @@ export default class UserService extends MedusaUserService {
     config?: FindConfig<User>
   ): Promise<User> {
     const userRepo = this.manager.getCustomRepository(this.userRepository);
-    const validatedId = this.validateId_(userId);
-    const query = this.buildQuery_({ id: validatedId }, config);
+    const query = this.buildQuery_({ id: userId }, config);
 
     const user = await userRepo.findOne(query);
 
